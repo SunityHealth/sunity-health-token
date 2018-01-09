@@ -1,6 +1,6 @@
-# SUNITY Health Token (Ropsten Tests)![Join our Commuinity Chat](https://sunity.health/chat)
+# SUNITY Health Token ![Join our Community Chat](https://sunity.health/chat)
 
-<img src="resources/public/images/logo_sunity_round_thick.png"/>
+<img src="resources/public/images/logo_sunity_round_thick.png" style="height:300px;width:300px;"/>
 
 Read More:
 - [Contribution Period Flow](/CONTRIBUTION_FLOW.md)
