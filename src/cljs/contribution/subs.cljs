@@ -85,8 +85,7 @@
   :contribution/configuration
   (fn [db]
     (merge
-      (select-keys db [:contribution/stopped? :contribution/founder1 :contribution/founder2
-                       :contribution/early-sponsor :contribution/wallet :contribution/advisers
+      (select-keys db [:contribution/stopped? :contribution/founder1 :contribution/wallet :contribution/team
                        :contribution/max-gas-price])
       {:contribution-address (get-in db [:smart-contracts :contribution :address])
        :dnt-token-address (get-in db [:smart-contracts :dnt-token :address])})))

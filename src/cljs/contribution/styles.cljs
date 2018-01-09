@@ -1,10 +1,10 @@
 (ns contribution.styles
   (:require [cljs-react-material-ui.core :refer [color get-mui-theme]]))
 
-(def theme-cyan "#7cf8fa")
-(def theme-blue "#2c398f")
-(def theme-green "#23fdd8")
-(def theme-orange "#ffd500")
+(def theme-cyan "#fff")
+(def theme-blue "#62a8ea")
+(def theme-green "#fff")
+(def theme-orange "#fff")
 (def theme-gray "#47608e")
 
 (def primary1-color theme-cyan)
@@ -49,7 +49,8 @@
   {:margin-bottom desktop-gutter})
 
 (def margin-bottom-gutter-more
-  {:margin-bottom desktop-gutter-more})
+  {:margin-bottom desktop-gutter-more
+    :font-family "eagle"})
 
 (def margin-top-gutter-more
   {:margin-top desktop-gutter-more})
@@ -95,7 +96,8 @@
    :padding-bottom x})
 
 (def text-left
-  {:text-align :left})
+  {:text-align :left
+    :width "60%"})
 
 (def text-right
   {:text-align :right})
@@ -134,7 +136,8 @@
 ;; --- GENERIC STYLES END ---
 
 (def paper
-  {:border-radius "10px"})
+  {:border-radius "10px"
+    :box-shadow "none"})
 
 (def content-wrap
   (padding-all desktop-gutter))
@@ -143,37 +146,37 @@
   {:color (color :white)})
 
 (def app-bar
-  {:background-color "#FFF"
+  {:background-color "#62a8ea"
    :box-shadow "none"})
 
 (def active-address-select-field
-  {:color theme-blue
+  {:color theme-cyan
    :margin-right 10})
 
 (def active-address-single
   {:margin-right 10
    :font-size "1.3em"
    :line-height "50px"
-   :color theme-blue})
+   :color theme-cyan})
 
 (def active-address-select-field-label
-  {:color theme-blue})
+  {:color theme-cyan})
 
 (def app-bar-balance
-  {:color theme-blue})
+  {:color theme-cyan})
 
 (def stats-tile-border-right
-  {:border-right "0.5px solid rgba(255, 255, 255, 0.1)"})
+  {:border-right "0.5px solid rgba(255, 255, 255, 0.3)"})
 
 (def stats-tile-border-bottom
-  {:border-bottom "0.5px solid rgba(255, 255, 255, 0.1)"})
+  {:border-bottom "0.5px solid rgba(255, 255, 255, 0.3)"})
 
 (def stats-tile-border-top
-  {:border-top "0.5px solid rgba(255, 255, 255, 0.1)"})
+  {:border-top "0.5px solid rgba(255, 255, 255, 0.3)"})
 
 (def stats-tile
   {:text-align "center"
-   :height 250
+   :height 150
    :color theme-green
    :font-family "filson-soft, sans-serif"})
 
@@ -200,7 +203,9 @@
 (def logo
   {:height 45
    :width "auto"
-   :margin-top 13})
+   :margin-top 11
+   :float "left"
+   :margin-right 10})
 
 
 

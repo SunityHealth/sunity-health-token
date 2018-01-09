@@ -13,8 +13,7 @@
      :contrib-period/after-soft-cap-duration (bn/->number after-soft-cap-duration)
      :contrib-period/hard-cap-amount (big-num->ether hard-cap-amount)
      :contrib-period/start-time (bn/->date-time start-time)
-     :contrib-period/end-time (t/to-default-time-zone (t/plus (cljs-time.core/date-time 2017 7 18 15)
-                                                              (t/weeks 2))) #_(bn/->date-time end-time)
+     :contrib-period/end-time (bn/->date-time end-time)
      :contrib-period/enabled? enabled?
      :contrib-period/soft-cap-reached? soft-cap-reached?
      :contrib-period/hard-cap-reached? hard-cap-reached?
@@ -30,13 +29,11 @@
          :contrib-period/end-time)
     contrib-period))
 
-(defn parse-get-configuration [[stopped? wallet founder1 founder2 early-sponsor advisers transfers-enabled?
+(defn parse-get-configuration [[stopped? wallet founder1 team transfers-enabled?
                                 max-gas-price]]
   {:contribution/stopped? stopped?
    :contribution/wallet wallet
    :contribution/founder1 founder1
-   :contribution/founder2 founder2
-   :contribution/early-sponsor early-sponsor
-   :contribution/advisers advisers
+   :contribution/team team
    :dnt-token/transfers-enabled? transfers-enabled?
    :contribution/max-gas-price (bn/->number max-gas-price)})

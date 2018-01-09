@@ -24,8 +24,8 @@
      {:center "xs"
       :middle "xs"
       :style {:min-height "400px"}}
-     [:h3 "We couldn't find district0x Contribution smart contracts." [:br]
-      "Your MetaMask Chrome extension is most likely not pointed to Ethereum Mainnet, please check."]]]])
+     [:h3 "We couldn't find Sunity.health Contribution smart contracts." [:br]
+      "Your MetaMask or Parity Chrome extension is most likely not pointed to Ethereum Mainnet, please check."]]]])
 
 (defn app-bar-right-elements []
   (let [active-address-balance-eth (subscribe [:district0x/active-address-balance :eth])
@@ -79,8 +79,7 @@
                     :contrib-period/stake :contrib-period/soft-cap-reached? :contrib-period/total-contributed
                     :contrib-period/hard-cap-reached? :contrib-period/contributors-count]} @contrib-period
             {:keys [:loading?]} @enable-contrib-form
-            {:keys [:contribution/stopped? :contribution/founder1 :contribution/founder2
-                    :contribution/early-sponsor :contribution/wallet :contribution/advisers
+            {:keys [:contribution/stopped? :contribution/founder1 :contribution/wallet :contribution/team
                     :contribution-address dnt-token-address :dnt-token/transfers-enabled?]} @contrib-config]
         (when @can-see-admin-panel?
           [paper
@@ -94,15 +93,13 @@
              {:xs 12
               :style styles/margin-bottom-gutter}
              [info-line "Contribution Contract:" [etherscan-link {:address contribution-address}]]
-             [info-line "DNT Token Contract:" [etherscan-link {:address dnt-token-address}]]
+             [info-line "SUN Token Contract:" [etherscan-link {:address dnt-token-address}]]
              [info-line "Founder 1:" [etherscan-link {:address founder1}]]
-             [info-line "Founder 2:" [etherscan-link {:address founder2}]]
-             [info-line "Early Sponsor:" [etherscan-link {:address early-sponsor}]]
              [info-line "Wallet:" [etherscan-link {:address wallet}]]
-             (for [[i adviser] (medley/indexed advisers)]
+             (for [[i adviser] (medley/indexed team)]
                [info-line
                 {:key i}
-                (str (when (= adviser (last advisers)) "Community ")
+                (str (when (= adviser (last team)) "Community ")
                      "Adviser " (inc i) ":") [etherscan-link {:address adviser}]])]
             (when total-contributed
               [col
@@ -120,8 +117,8 @@
                [info-line "Total Contributed:" (u/format-eth-with-symbol total-contributed)]
                [info-line "Contributors Count:" contributors-count]
                [info-line "Emergency stop?" (u/bool->yes|no stopped?)]
-               [info-line "Contribution Contract DNT Balance:" (u/format-dnt-with-symbol @contrib-contract-dnt-balance)]
-               [info-line "DNT Transfers Enabled?" (u/bool->yes|no transfers-enabled?)]])]])))))
+               [info-line "Contribution Contract SUN Balance:" (u/format-dnt-with-symbol @contrib-contract-dnt-balance)]
+               [info-line "SUN Transfers Enabled?" (u/bool->yes|no transfers-enabled?)]])]])))))
 
 (defn contribution-tile []
   (let [xs-sm-width? (subscribe [:district0x/window-xs-sm-width?])]
@@ -216,7 +213,8 @@
           {:xs 12}
           [:h1 {:style (merge styles/margin-bottom-gutter-more
                               styles/text-center)}
-           "Contribution Period " (constants/contrib-period->name constants/current-contrib-period)]]
+            "SUN Token Initial Coin Offering"]]
+;           "Contribution Period " (constants/contrib-period->name constants/current-contrib-period)]]
          [contribution-tile
           {:title (contrib-period-status->countdown-title @contrib-period-status)
            :index 0}
@@ -261,7 +259,7 @@
               (/ stake 1000000) " Mil"]
              [:h3
               {:style styles/stats-tile-amount-subtitle}
-              "DNT tokens"]]
+              "SUN tokens"]]
             [ui/circular-progress])]]))))
 
 (defn contribution-soft-cap-progress []
@@ -371,7 +369,7 @@
                               styles/margin-top-gutter-less
                               {:color styles/theme-green
                                :font-family "filson-soft, sans-serif"})}
-               "district.eth" [:br]
+               "sunityhealth.eth" [:br]
                [:span {:style {:font-size "0.7em"}} @contribution-address]]
               [:div
                {:style (merge styles/full-width
@@ -442,12 +440,11 @@
                   :on-check #(dispatch [:set-confirmation :confirmed-not-us-citizen? %2])}]
                 [ui/checkbox
                  {:label (r/as-element [:span "I understand "
-                                        [:b "the maximum gas price when contributing is 50 Gwei"]
-                                        " and any transaction sent with a higher gas price will be rejected."])
+                                        [:b "the maximum gas price when contributing is 50 Gwei"]])
                   :checked @confirmed-gas-price?
                   :on-check #(dispatch [:set-confirmation :confirmed-gas-price? %2])}]
                 [ui/checkbox
-                 {:label "I understand that it may take up to 7 days from the time the contribution period ends to receive DNT."
+                 {:label "I understand that it may take up to 7 days after contribution period ends to receive SUN."
                   :checked @confirmed-compensation?
                   :on-check #(dispatch [:set-confirmation :confirmed-compensation? %2])}]]
                [:div
@@ -465,13 +462,13 @@
            [:div
             [:div
              {:style styles/distribution-note}
-             "Please note: " (u/format-eth stake) " DNT tokens will be divided and distributed amongst all
+             "Please note: " (u/format-eth stake) " SUN tokens will be divided and distributed amongst all
             participants " [:b "after the contribution period ends"] ". Each participant will receive an allocation
             proportional to the amount they contributed, relative to the total collected."]
             [:div
              {:style (merge styles/full-width
                             styles/margin-top-gutter)}
-             [:a {:href "https://district0x.io/docs/district0x-terms.pdf"
+             [:a {:href "https://sunity.health/docs/SUN-ico-terms.pdf"
                   :target :_blank
                   :style styles/contrib-terms-link}
               "Contribution Terms"]]])
@@ -480,11 +477,11 @@
                          styles/fade-white-text
                          styles/margin-top-gutter
                          styles/margin-bottom-gutter-mini)}
-          "Copyright © 2017 district0x"]
+          "Copyright © 2018 Sunity Health"]
          [:div
           {:style styles/full-width}
-          [:img {:src "./images/district0x-logo-title-white.svg"
-                 :style {:height 15}}]]]))))
+          [:img {:src "./images/logo_sunity_round_thick_110.png"
+                 :style {:height 32}}]]]))))
 
 (defn contribution-panel []
   [paper
@@ -494,10 +491,15 @@
 
 (defn logo []
   [:a
-   {:href "https://district0x.io"}
+   {:href "https://sunity.health"}
    [:img
     {:style styles/logo
-     :src "./images/district0x-logo.svg"}]])
+     :src "./images/logo_sunity_round_thick_110.png"}]
+  [:h2.bolder {:style (merge styles/app-bar-balance
+                                      {:margin-right 10}
+                                      {:margin-top 10}
+                                      {:margin-left 10})}
+            "Sunity.health"]])
 
 (defn main-panel []
   (let [connection-error? (subscribe [:district0x/blockchain-connection-error?])
@@ -512,14 +514,14 @@
                  :overflow :hidden
                  :position :relative
                  :min-height "100%"}}
-        [:img {:src "./images/green-blob2.svg"
-               :style styles/blob4}]
-        [:img {:src "./images/cyan-blob.svg"
-               :style styles/blob1}]
-        [:img {:src "./images/green-blob1.svg"
-               :style styles/blob2}]
-        [:img {:src "./images/green-blobs.svg"
-               :style styles/blob3}]
+;        [:img {:src "./images/green-blob2.svg"
+;               :style styles/blob4}]
+;        [:img {:src "./images/cyan-blob.svg"
+;               :style styles/blob1}]
+;        [:img {:src "./images/green-blob1.svg"
+;               :style styles/blob2}]
+;        [:img {:src "./images/green-blobs.svg"
+;               :style styles/blob3}]
         [ui/app-bar
          {:show-menu-icon-button false
           :style styles/app-bar
@@ -531,5 +533,5 @@
          (if @contracts-not-found?
            [contracts-not-found-page]
            [center-layout
-            [contribution-panel]
-            [admin-panel]])]]])))
+            [contribution-panel]])]]])))
+           ; [admin-panel]])]]])))

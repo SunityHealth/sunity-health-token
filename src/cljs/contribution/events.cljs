@@ -56,9 +56,7 @@
                                              :gas 3500000
                                              :args ((juxt :contribution/wallet
                                                           :contribution/founder1
-                                                          :contribution/founder2
-                                                          :contribution/early-sponsor
-                                                          :contribution/advisers)
+                                                          :contribution/team)
                                                      contribution-args)
                                              :on-success [:contribution-contract-deployed]}]}))
 
@@ -333,15 +331,11 @@
                                         (merge
                                           (when (<= 10 (count my-addresses))
                                             #_{:contribution/founder1 (first my-addresses)
-                                               :contribution/founder2 (second my-addresses)
-                                               :contribution/early-sponsor (first my-addresses)
                                                :contribution/wallet (nth my-addresses 3)
-                                               :contribution/advisers (drop 4 (take 7 my-addresses))}
+                                               :contribution/team (drop 4 (take 7 my-addresses))}
                                             {:contribution/founder1 (first my-addresses)
-                                             :contribution/founder2 (first my-addresses)
-                                             :contribution/early-sponsor (first my-addresses)
                                              :contribution/wallet (first my-addresses)
-                                             :contribution/advisers (repeat 3 (first my-addresses))})
+                                             :contribution/team (repeat 3 (first my-addresses))})
                                           contribution-args)
                                         address-index]}
                             {:when :seen?
@@ -377,22 +371,17 @@
 
 (comment
 
-  (dispatch [:deploy-contribution-contract {:contribution/wallet "0xd20e4d854c71de2428e1268167753e4c7070ae68"
-                                            :contribution/founder1 "0x0e90d8f85fc3107df47d20444244feaa824d1082"
-                                            :contribution/founder2 "0xa8dc2b53ecebeaa641ebb0601a69fbf936ee04f4"
-                                            :contribution/early-sponsor "0x00E5cDD4B7b3a78a4277749957553371cb6B2310"
-                                            :contribution/advisers ["0x518611649eE8fEFeD0A4DA3D47bAB213c79ce9b5"
-                                                                    "0xdBD6ffD3CB205576367915Dd2f8De0aF7edcCeeF"
-                                                                    "0x61EF0722Fb8c4F11cB2F0091EA1DC22B6dFF89c1"
-                                                                    "0x8f077C8B4876004ef3549CeebF312D36F5B109eF"
-                                                                    "0xb58f2c5431ba945d765e92c14990bed40990f719"]}])
+  (dispatch [:deploy-contribution-contract {:contribution/wallet "0x85D9D25967B215792585a72f85370344912E960B"
+                                            :contribution/founder1 "0x00e28A6d40342595DcCA402de771be50590aBDf1"
+                                            :contribution/team ["0x00f7E88f827C8947DfD7B083a72771156A215357"
+                                                                    "0x00a67964D3acb2ffE2D31c6E2DE85024DEc40D7d"
+                                                                    "0x00FC65d0EaD92f5Be9a4dd69618621F615BAE5bc"
+                                                                    "0x0058C436D42E49a9e48637d7baC686b11C3752e7"]}])
 
   (let [active-address (:active-address @re-frame.db/app-db)]
     (dispatch [:deploy-contribution-contract {:contribution/wallet active-address
                                               :contribution/founder1 active-address
-                                              :contribution/founder2 active-address
-                                              :contribution/early-sponsor active-address
-                                              :contribution/advisers [active-address active-address active-address]}]))
+                                              :contribution/team [active-address active-address active-address]}]))
 
   (dispatch [:deploy-mini-me-token-factory-contract])
   (dispatch [:deploy-dnt-token-contract])
