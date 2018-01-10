@@ -1,6 +1,9 @@
-# SUNITY Health Token ![Join our Community Chat](https://sunity.health/chat)
+# SUNITY Health Token [Join our Community Chat](https://sunity.health/chat)
+<div style="text-align:center">
+<img src="resources/public/images/logo_sunity_round_thick.png" width="50%" align="center" />
+</div>
 
-<img src="resources/public/images/logo_sunity_round_thick.png" style="height:300px;width:300px;"/>
+This is a fork of [district0x network token sale](https://github.com/district0x/district0x-network-token), modified and adapted to our needs. They inspired us because of a simple design and simplicity of the solidity code and successful token sale, which was audited by an external developer. [See the audit results here](https://github.com/district0x/district0x-network-token/issues/4). Current SunityContribution.sol contract has vesting set to few weeks for testing on Ropsten Network. Do not use it on Foundation. The addresses and etherscan links are for Ropsten at the moment.
 
 Read More:
 - [Contribution Period Flow](/CONTRIBUTION_FLOW.md)
