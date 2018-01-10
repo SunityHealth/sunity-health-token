@@ -1,6 +1,6 @@
 # SUNITY Health Token [Join our Community Chat](https://sunity.health/chat)
 <p align="center">
-<img src="resources/public/images/logo_sunity_round_thick.png" width="50%" align="center" />
+<img src="resources/public/images/logo_sunity_round_thick.png" width="30%" align="center" />
 </p>
 
 This is a fork of [district0x network token sale](https://github.com/district0x/district0x-network-token), modified and adapted to our needs. They inspired us because of a simple design, simplicity of the solidity code which was audited by an external developer, documentation, and successful token sale!. [See the audit results here](https://github.com/district0x/district0x-network-token/issues/4). 

@@ -2,7 +2,7 @@
 
 
 <p align="center">
-<img src="resources/public/images/logo_sunity_round_thick.png" width="50%"/>
+<img src="resources/public/images/logo_sunity_round_thick.png" width="30%"/>
 </p>
 
 ### Instantiation:
