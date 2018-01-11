@@ -1,6 +1,6 @@
 (defproject contribution "0.1.0-SNAPSHOT"
   :description "Contribution period for sunity"
-  :url "http://contribution.sunity.io"
+  :url "http://sunity.health/token"
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
   :dependencies [[cljs-react-material-ui "0.2.44"]
@@ -76,23 +76,23 @@
                                                :closure-defines {goog.DEBUG false}
                                                :pretty-print false
                                                :pseudo-names false}}
-                                   ; {:id "test-fig"
-                                   ;  :source-paths ["src/cljs" "test"]
-                                   ;  :figwheel true
-                                   ;  :compiler {:main "contribution.cmd"
-                                   ;             :output-to "test-fig-compiled/contribution-tests.js",
-                                   ;             :output-dir "test-fig-compiled",
-                                   ;             :target :nodejs,
-                                   ;             :optimizations :none,
-                                   ;             :verbose true
-                                   ;             :source-map true}}
-                                   ; {:id "test"
-                                   ;  :source-paths ["src/cljs" "test"]
-                                   ;  :compiler {:main "contribution.cmd"
-                                   ;             :output-to "contribution-tests.js",
-                                   ;             :output-dir "test-compiled",
-                                   ;             :target :nodejs,
-                                   ;             :optimizations :simple,
-                                   ;             :verbose false
-                                   ;             :source-map "contribution-tests.js.map" #_ true}}
+                                   {:id "test-fig"
+                                    :source-paths ["src/cljs" "test"]
+                                    :figwheel true
+                                    :compiler {:main "contribution.cmd"
+                                               :output-to "test-fig-compiled/contribution-tests.js",
+                                               :output-dir "test-fig-compiled",
+                                               :target :nodejs,
+                                               :optimizations :none,
+                                               :verbose true
+                                               :source-map true}}
+                                   {:id "test"
+                                    :source-paths ["src/cljs" "test"]
+                                    :compiler {:main "contribution.cmd"
+                                               :output-to "contribution-tests.js",
+                                               :output-dir "test-compiled",
+                                               :target :nodejs,
+                                               :optimizations :simple,
+                                               :verbose false
+                                               :source-map "contribution-tests.js.map" #_ true}}
                                                ]}}})
