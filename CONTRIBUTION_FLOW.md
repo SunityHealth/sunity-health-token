@@ -6,7 +6,7 @@
 </p>
 
 ### Instantiation:
-<br>
+
 #### 1. Deploy contribution contract [SunityContributionRopsten.sol](/resources/public/contracts/src/SunityContributionRopsten.sol).
 Sunity contribution contract will be deployed at least 5 days prior to the beginning of the contribution period.
 
@@ -21,13 +21,13 @@ Parameters:
 - _Founder_: Address of Rodrigo Arigita.
 
 - _Team_: 4 addresses of team members consisting of: Javier Gómez, Yael H. Oaknin, Mike Pérez and Carlos Abanses, who contributed to the project with their time, experience and illusion.
-<br>
+
 #### 2. Deploy MiniMeTokenFactory [MiniMeToken.sol](/resources/public/contracts/src/MiniMeToken.sol)
 
 MiniMeToken contract must be deployed, so SUN Token becomes clonable.
 
 No parameters.
-<br>
+
 #### 3. Deploy token contract [SunityHealthToken.sol](/resources/public/contracts/src/SunityHealthToken.sol)
 
 Parameters:
