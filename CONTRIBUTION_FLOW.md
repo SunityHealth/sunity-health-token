@@ -35,7 +35,7 @@ Parameters:
 - _Controller_: Address of SunityContribution contract. Its address will be the only one allowed to generate predetermined amount of SUN tokens. SunityContribution doesn't implement function to transfer controller ownership, therefore additional SUN tokens can never be generated.
 
 - _TokenFactory_: Address of earlier deployed MiniMeToken contract.
-<br>
+
 #### 4. Set SUN Token address `SunityContribution.setSunityHealthToken()`
 This method sets address of SunityHealthToken in contribution contract. At this moment, exactly 1,000,000,000 SUN tokens are generated and assigned to contribution contract. 
 
@@ -44,7 +44,7 @@ Parameters:
 - _sunityHealthToken_: Address of earlier deployed SunityHealthToken 
 
 
-<br>
+
 #### 5. Set contribution period parameters `SunityContribution.setContribPeriod()`
 This method sets up contribution period parameters and also vesting for founder and team members. Note, after setting up, contribution period is still not valid. To be valid it must be confirmed by multiple signatures (see following step).
   
@@ -61,32 +61,32 @@ Parameters:
 - _Start Time_: **July 18, 3:00pm UTC** Beginning of a contribution period, in Unix timestamp format.
 
 - _End Time_: **August 1, 3:00pm UTC** End of a contribution period, unless Soft or Hard cap is reached, in Unix timestamp format.
-<br>
+
 #### 6. Enable contribution period `SunityContribution.enableContribPeriod()`
 This method will be executed only with multiple signatures 2/3 of our team and trusted individuals from Ethereum community (listed in our whitepaper). It will make a contribution period confirmed with current parameters. 
 
 No parameter.
 
-<br>
+
 ***
-<br>
+
 
 ### Contribution:
-<br>
+
 #### 7. Buy SUN tokens `SunityContribution.contribute()` or `SunityContribution.fallback()` 
 This method will save your address and amount of your contribution. If you contribute multiple times from the same address, amounts will be added up. Note, since we'll allocate SUN proportionally to the contributed amount, SUN
 tokens will not be send to contributors immediately. Distribution will happen shortly after sale ends. Contributed Ether is transferred to our multi-signature wallet after each contribution. Note, **maximum gas price** that can be
 used for contribution is **60Gwei**, otherwise transaction will fail!
 
 No parameters
-<br>
+
 #### 8. Emergency stop `SunityContribution.emergencyStop()`
 In case of emergency, district0x is able to pause contribution period
-<br>
+
 ***
-<br>
+
 ### After Contribution:
-<br>
+
 #### 9. Send SUN tokens to contributors `SunityContribution.compensateContributors()`
 This method is called by owner after contribution period ends to distribute SUN tokens in proportional manner. In case of many contributors will need to be executed multiple times, due to gas limit restrictions.
 
@@ -97,7 +97,7 @@ Parameters:
 - _limit_: Maximum number of contributors compensated with this transaction. 
 
 Offset and limit parameters are used to "paging" through contributors.
-<br>
+
 #### 10. Enable SUN transfers `SunityContribution.enableSunityHealthTokenTransfers()`
 This method is called by owner after SUN tokens were distributed to all contributors. DNT transfers should be enabled in matter of hours after end of contribution period.
 
