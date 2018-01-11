@@ -31,8 +31,7 @@ Multisig [0x85D9D25967B215792585a72f85370344912E960B](https://ropsten.etherscan.
 
 At the technical level SUN is a ERC20-compliant token, derived from the [MiniMeToken](https://github.com/Giveth/minime) that allows for token cloning (forking), which will be useful for many future usecases.
 
-Vesting functionality derived from [VestedToken](https://github.com/OpenZeppelin/zeppelin-solidity/blob/master/contracts/token/VestedToken.sol) 
-is also built-in into our token. Founders, advisors and early contributor have their tokens vested. 
+Vesting functionality derived from [VestedToken](https://github.com/OpenZeppelin/zeppelin-solidity/blob/master/contracts/token/VestedToken.sol) is also built-in into our token. Founder and team members have their tokens vested. 
 
 ## Contracts
 
