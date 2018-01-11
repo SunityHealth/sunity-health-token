@@ -1,4 +1,4 @@
-# SUNITY token sale flow (SUN Token Sale), Ropsten tests.
+# SUNITY token sale flow (SUN token, Ropsten tests)
 
 
 <p align="center">

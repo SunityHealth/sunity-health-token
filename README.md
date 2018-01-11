@@ -3,7 +3,7 @@
 <img src="resources/public/images/logo_sunity_round_thick.png" width="30%" align="center" />
 </p>
 
-This is a fork of [district0x network token sale](https://github.com/district0x/district0x-network-token), modified and adapted to our needs. They inspired us because of a simple design, simplicity of the solidity code which was audited by an external developer, documentation, and successful token sale!. [See the audit results here](https://github.com/district0x/district0x-network-token/issues/4). 
+This is a fork of [district0x network token sale](https://github.com/district0x/district0x-network-token), modified and adapted to our needs. They inspired us because of a simple design, simplicity of the solidity code which was audited by an external developer, clear documentation, and successful token sale!. [See the audit results here](https://github.com/district0x/district0x-network-token/issues/4). Thanks to [district0x](http://district0x.io) team and the [Aragon](http://aragon.one) team.
 
 Current SunityContribution.sol contract has vesting set to few weeks for testing on Ropsten Network. Do not use it on Foundation. The addresses and etherscan links are for Ropsten at the moment.
 
